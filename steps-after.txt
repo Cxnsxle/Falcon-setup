@@ -1,0 +1,63 @@
+# install SecLists and rockyou
+# install netexec with virtualenv env
+# install most of the tools
+sudo apt install smbclient smbmap nmap arp-scan nbtscan xsltproc poppler-utils john proxychains4 psmisc exploitdb freerdp2-x11 responder snmp onesixtyone braa whatweb jq ffuf wfuzz gobuster openvpn evil-winrm
+# install metasploit
+sudo apt install metasploit-framework
+msfconsole init
+msfdb delete
+msfdb init
+cp /usr/share/metasploit-framework/config/database.yml /root/.msf4/
+service postgresql restart
+msfconsole
+# install ligolo-ng, chisel, socat, frp
+# install neo4j and bloodhound
+sudo apt install docker.io
+sudo docker pull neo4j
+sudo docker run --name "neo4j" -dit -p 7474:7474 -p 7687:7687 neo4j # -> setup at localhost:7474
+-> https://github.com/BloodHoundAD/BloodHound/releases
+./BloodHound --no-sandbox  # test
+# install and configure burpsuite and foxyproxy
+sudo apt install default-jdk
+==========================
+ADJUST .zshrc
+==========================
+# install and configure myownpwsh with Dockerfile
+# transfer tools
+-> browser
+cookieextractor.py
+firepwd.py
+-> shells: windows and linux
+-> linux -> in
+lse.sh
+linpeas.sh
+pspy64
+-> recon
+recon.py
+local-recon.py
+-> windows -> AzureAD
+getCreds.ps1
+-> windows -> EternalBlue # all
+-> windows -> ex # all
+-> windows -> HiveNightmare
+HiveNightmare.exe
+-> windows -> in # all
+-> windows -> krbrelayx
+git clone https://github.com/dirkjanm/krbrelayx.git
+-> windows -> loadDriver
+EnableSeLoadDriverPrivilege.cpp
+-> windows -> noPac
+git clone https://github.com/Ridter/noPac.git
+-> windows -> privileges # all
+-> windows -> SharpHound # all
+-> windows -> Software # all
+-> windows -> sysinternals
+procdump.exe
+
+# configure and deploy VIM
+git clone https://github.com/cxnsxle/cxnsxle-vim-setup.git
+cd cxnsxle-vim-setup
+chmod +x install
+./install
+sudo apt install npm
+<ON VIM>LspInstallServer pyright-langserver
